@@ -1,0 +1,216 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the Documentation for Budgety Backend API.",
+        "version": "1.0.0",
+        "title": "Budgety Backend API Documentation",
+        "contact": {
+            "email": "ayush02av@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/",
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "summary": "Register New User",
+                "description": "Register New User",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Auth"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "type": "object",
+                        "example": {
+                            "name": "Test User",
+                            "email": "test@gmail.com",
+                            "password": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "summary": "Login User",
+                "description": "Login User",
+                "produces": [
+                    "application/json"
+                ],
+                "jsonEditor": true,
+                "tags": [
+                    "User Auth"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "type": "object",
+                        "example": {
+                            "email": "test@gmail.com",
+                            "password": "test"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/general/profile": {
+            "get": {
+                "summary": "User Profile",
+                "description": "User Profile",
+                "produces": [
+                    "application/json"
+                ],
+                "jsonEditor": true,
+                "tags": [
+                    "User Gerneral"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/transactions/addIncome": {
+            "post": {
+                "summary": "Add Current Month Income",
+                "description": "Add Current Month Income",
+                "produces": [
+                    "application/json"
+                ],
+                "jsonEditor": true,
+                "tags": [
+                    "User Transactions"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "type": "object",
+                        "example": {
+                            "amount": "5",
+                            "source": "untracked"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/transactions/addExpense": {
+            "post": {
+                "summary": "Add Current Month Expense",
+                "description": "Add Current Month Expense",
+                "produces": [
+                    "application/json"
+                ],
+                "jsonEditor": true,
+                "tags": [
+                    "User Transactions"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "type": "object",
+                        "example": {
+                            "amount": "5",
+                            "source": {
+                                "title": "untracked",
+                                "color": "#f6f6f6"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/settings/editDetails": {
+            "put": {
+                "summary": "Edit User Details",
+                "description": "Edit User Details",
+                "produces": [
+                    "application/json"
+                ],
+                "jsonEditor": true,
+                "tags": [
+                    "User Settings"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "type": "object",
+                        "example": {
+                            "fixedIncomePerMonth": 100,
+                            "fixedExpensePerMonth": 40,
+                            "fixedIncomePayDayOfMonth": 3,
+                            "fixedExpensePayDayOfMonth": 7,
+                            "monthlySavingsGoal": 50
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
